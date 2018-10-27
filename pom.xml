@@ -61,10 +61,10 @@
 				</executions>
 				<configuration>
 					<schemaLanguage>WSDL</schemaLanguage>
-					<generatePackage>hello.wsdl</generatePackage>
+					<generatePackage>wsdl</generatePackage>
 					<schemas>
 						<schema>
-							<url>http://localhost:8080/isssue-handle-1.0-SNAPSHOT/ComplaintService?wsdl</url>
+							<url>http://localhost:8080/isssue-handle-1.0-SNAPSHOT/ApplicationService?wsdl</url>
 						</schema>
 					</schemas>
 				</configuration>

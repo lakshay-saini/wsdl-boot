@@ -1,19 +1,20 @@
 package com.decipher.wsdlboot;
 
-import hello.wsdl.GetGreet;
-import hello.wsdl.GetGreetResponse;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
+import wsdl.GetGreet;
+import wsdl.GetGreetResponse;
+
+import javax.xml.bind.JAXBElement;
 
 public class DataClient extends WebServiceGatewaySupport {
 
-    public GetGreetResponse getMessage() {
+    public GetGreetResponse getGreetMessage() {
+        JAXBElement response = this.getResponse();
+        return  (GetGreetResponse)response.getValue();
+    }
 
-        GetGreet request = new GetGreet();
-
-        return (GetGreetResponse) getWebServiceTemplate()
-                .marshalSendAndReceive("http://localhost:8080/isssue-handle-1.0-SNAPSHOT/ComplaintService", request,
-                        new SoapActionCallback(
-                                "http://issuehandling.decipher.com/getGreet/"));
+    private JAXBElement getResponse() {
+        return (JAXBElement) getWebServiceTemplate().marshalSendAndReceive("http://localhost:8080/isssue-handle-1.0-SNAPSHOT/ApplicationService", new GetGreet(), new SoapActionCallback(""));
     }
 }
