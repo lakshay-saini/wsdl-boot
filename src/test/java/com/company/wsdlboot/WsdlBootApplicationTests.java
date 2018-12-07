@@ -1,4 +1,4 @@
-package com.decipher.wsdlboot;
+package com.company.wsdlboot;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
